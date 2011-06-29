@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>rs</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>/\*\*|\{\s*$</string>
+	<key>foldingStopMarker</key>
+	<string>\*\*/|^\s*\}</string>
+	<key>name</key>
+	<string>Rotor</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>\b(log)\b</string>
+			<key>name</key>
+			<string>entity.control.debug</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>match the dollar sign or var</string>
+			<key>match</key>
+			<string>\$\w+</string>
+			<key>name</key>
+			<string>variable.control.variable</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>#.*</string>
+			<key>name</key>
+			<string>comment.line</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\$</string>
+			<key>name</key>
+			<string>variable.language.dollar</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>string.quoted.single</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[_a-zA-Z\-](\w|\-)*:</string>
+			<key>name</key>
+			<string>keyword.control.keywords</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>@import\s.*</string>
+			<key>name</key>
+			<string>entity.control.import</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[1-9]</string>
+			<key>name</key>
+			<string>constant.control.numbers</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?x)
+			   (?:
+			     ^                      # beginning of line
+			   | (?&lt;=                   # or look-behind on:
+			       [=&gt;~(?:\[,|&amp;;]
+			     | [\s;]if\s			# keywords
+			     | [\s;]elsif\s
+			     | [\s;]while\s
+			     | [\s;]unless\s
+			     | [\s;]when\s
+			     | [\s;]assert_match\s
+			     | [\s;]or\s			# boolean opperators
+			     | [\s;]and\s
+			     | [\s;]not\s
+			     | [\s.]index\s			# methods
+			     | [\s.]scan\s
+			     | [\s.]sub\s
+			     | [\s.]sub!\s
+			     | [\s.]gsub\s
+			     | [\s.]gsub!\s
+			     | [\s.]match\s
+			     )
+			   | (?&lt;=                  # or a look-behind with line anchor:
+			        ^when\s            # duplication necessary due to limits of regex
+			      | ^if\s
+			      | ^elsif\s
+			      | ^while\s
+			      | ^unless\s
+			      )
+			   )
+			   \s*((/))(?![*+{}?])
+			</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>string.regexp.classic.ruby</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (normal)
+			we only start a regexp if the character before it (excluding whitespace)
+			is what we think is before a regexp
+			</string>
+			<key>contentName</key>
+			<string>string.regexp.classic.ruby</string>
+			<key>end</key>
+			<string>((/[eimnosux]*))</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\}[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.ruby</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.ruby</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_curly_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\][eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.ruby</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.ruby</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\)[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.ruby</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.ruby</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\&gt;[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.ruby</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.ruby</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r([^\w])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\1[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.ruby</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.ruby</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^=begin</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>multiline comments</string>
+			<key>end</key>
+			<string>^=end</string>
+			<key>name</key>
+			<string>comment.block.documentation.ruby</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.ruby</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?:^[ \t]+)?(#).*$\n?</string>
+			<key>name</key>
+			<string>comment.line.number-sign.ruby</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.rotor</string>
+	<key>uuid</key>
+	<string>0885835B-C09A-479B-98A9-CDC5F7A85E90</string>
+</dict>
+</plist>

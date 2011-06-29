@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>page_content_changed?("${1:xpath}", "${2:attr}")</string>
+	<key>name</key>
+	<string>page_content_changed</string>
+	<key>scope</key>
+	<string>source.rotor</string>
+	<key>tabTrigger</key>
+	<string>pcc</string>
+	<key>uuid</key>
+	<string>82139AB3-C1C1-4DBF-92A9-B96BFB21B3F9</string>
+</dict>
+</plist>

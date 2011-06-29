@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>switch_to_frame("${1:frame_name}")</string>
+	<key>name</key>
+	<string>switch_to_frame</string>
+	<key>scope</key>
+	<string>source.rotor</string>
+	<key>tabTrigger</key>
+	<string>stf</string>
+	<key>uuid</key>
+	<string>885D06B8-CEF8-45F5-866B-4DE3A9864C88</string>
+</dict>
+</plist>

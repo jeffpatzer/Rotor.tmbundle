@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Rotor</string>
+	<key>ordering</key>
+	<array>
+		<string>0885835B-C09A-479B-98A9-CDC5F7A85E90</string>
+		<string>86AD3C42-9180-4B27-BEC7-DAE2449F27BB</string>
+		<string>4A7031E2-BC7F-4632-AA0A-4CE159117E02</string>
+		<string>3688A9AC-4A99-42B9-B0C4-825577EDB2F5</string>
+		<string>B246A8B6-8BB6-4B76-9E42-80089EB61592</string>
+		<string>55245127-E19D-4F13-8DDB-CD5F1073F4C8</string>
+		<string>084249FD-75E9-4C95-82CF-C9FFE000BC1D</string>
+		<string>4AF575FA-1CC7-4770-A631-5919FBC8B724</string>
+		<string>8D5A37C4-EF9F-416B-A35C-07A3F09D6425</string>
+		<string>DC95ADE2-B93C-4431-98A8-AE39D032D8BF</string>
+		<string>188D38FB-53BE-4613-A873-2BBB4AA1BC9F</string>
+		<string>885D06B8-CEF8-45F5-866B-4DE3A9864C88</string>
+		<string>6B56B55C-28CD-4F9E-9E37-029983EBCA11</string>
+		<string>82139AB3-C1C1-4DBF-92A9-B96BFB21B3F9</string>
+		<string>F9B831CF-A94C-4545-A970-A8E1F02A2843</string>
+		<string>4EE939DC-E1E0-48FB-B822-957D112E1D4C</string>
+	</array>
+	<key>uuid</key>
+	<string>D7A48B33-2856-456F-A9EE-0C23B9ECECE1</string>
+</dict>
+</plist>

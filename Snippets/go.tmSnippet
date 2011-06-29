@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>go("${1:url}") {
+	$0
+}</string>
+	<key>name</key>
+	<string>go</string>
+	<key>scope</key>
+	<string>source.rotor</string>
+	<key>tabTrigger</key>
+	<string>go</string>
+	<key>uuid</key>
+	<string>55245127-E19D-4F13-8DDB-CD5F1073F4C8</string>
+</dict>
+</plist>
